@@ -1,0 +1,28 @@
+﻿@model Frontend.Models.UserModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="align-content-center">
+    @*<h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
+    <div class="form-control w-25 align-content-center" >
+        <form asp-controller="Login" asp-action="Submit" method="post">
+            <div  class="">
+                <label asp-for="UserName" class="">User Name:</label>
+                <input asp-for="UserName" class="form-control"/>
+            </div>
+            <div class="">
+                <label asp-for="Password">Password:</label>
+                <input asp-for="Password" class="form-control" type="password"/>
+            </div>
+            <div>
+               <p></p>
+            <button type="submit" class="btn-primary">Login</button>
+             <p></p>
+        </div>
+
+        </form>
+    </div>
+    
+</div>

@@ -1,0 +1,79 @@
+﻿@model Frontend.Models.BpkbModel
+
+@{
+    ViewData["Title"] = "Form BPKB";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+<form asp-controller="Form" asp-action="Save" method="post">
+    <div class="container text-start">
+        <div class="row mt-2 mb-1">
+                <div class="col">
+                    <label asp-for="AgreementNumber" class="">Agreement Number</label>
+                    <input asp-for="AgreementNumber" class="form-control"/>
+                </div>
+                <div class="col">
+                <label asp-for="FakturDate" class="">Tanggal Faktur</label>
+                <input asp-for="FakturDate" class="form-control" />
+                </div>
+        </div>
+        <div class="row my-1">
+            <div class="col">
+                <label asp-for="BranchId" class="">Branch Id</label>
+                <input asp-for="BranchId" class="form-control" />
+                </div>
+            <div class="col">
+                <label asp-for="PoliceNo" class="">Nomor Polisi</label>
+                <input asp-for="PoliceNo" class="form-control" />
+            </div>
+        </div>
+        <div class="row my-1">
+            <div class ="col">
+                <label asp-for="BpkbNo" class="">No. BPKB</label>
+                <input asp-for="BpkbNo" class="form-control" />
+             </div>
+            <div class ="col">
+                <label asp-for="LocationId" class="">Lokasi Penyimpanan</label>
+                <select asp-for="LocationId" class="form-control form-select" asp-items="@(new SelectList(ViewBag.locations,"Value","Text"))"></select>
+            </div>
+        </div>
+        <div class="row my-1">
+            <div class="col-6">
+                <label asp-for="BpkbDateIn" class="">Tanggal BPKB in</label>
+                <input asp-for="BpkbDateIn" class="form-control" />
+             </div>
+        </div>
+        <div class="row my-1">
+            <div class="col-6">
+                <label asp-for="BpkbDate" class="">Tanggal BPKB</label>
+                <input asp-for="BpkbDate" class="form-control" />
+                </div>
+        </div>
+        <div class="row mt-1 mb-2">
+            <div class="col-6">
+                <label asp-for="FakturNo" class="">No. Faktur</label>
+                <input asp-for="FakturNo" class="form-control" />
+                </div>
+        </div>
+        <div class="row">
+            <input name="userType" type="hidden" value="@ViewBag.type" />
+        </div>
+        <div class="row my-3">
+            <div class="col">
+                <button type="reset" class="btn-warning text-center w-100" style="color: white;">Cancel</button>
+            </div>
+            <div class="col">
+                <button type="submit" class="btn-warning text-center w-100" style="color: white;">Save</button>
+            </div>
+        </div>
+        </form>
+@if (ViewBag.message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.message");
+        };
+    </script>
+}
+   
